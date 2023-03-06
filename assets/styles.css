@@ -1,0 +1,312 @@
+/* Common Styles*/
+body {
+  font-family: Manrope;
+  color: #333333;
+  font-size: 22px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.button {
+  font-family: inherit;
+  font-size: 1.2rem;
+  padding: 12px 25px;
+  color: #fff;
+  font-weight: 500;
+  background: #3475c5;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  border: none;
+  outline: none;
+  transition: all 0.3s ease 0s;
+}
+.button:hover {
+  background: #295d9d;
+}
+
+/* General styles */
+.container {
+  width: 30vw;
+  height: 30vw;
+  outline: 1px solid black;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 0;
+}
+.congratulation {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  /* border: 1px solid black; */
+  top: 0;
+  left: 0;
+  background-color: #edf3fb;
+  z-index: 2;
+  display: flex;
+  font-family: inherit;
+  font-size: 24px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5rem;
+  text-align: center;
+}
+.results {
+  width: 100vw;
+  height: 100vh;
+  background-color: #edf3fb;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 2rem;
+  gap: 1rem;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  overflow-y: auto;
+}
+.results button {
+  position: absolute;
+  bottom: 25px;
+}
+.container.pause::before {
+  position: absolute;
+  content: "Click Start Button";
+  font-size: 24px;
+  font-family: inherit;
+  width: 30vw;
+  height: 18vw;
+  padding-top: 12vw;
+  background-color: white;
+  z-index: 1;
+  text-align: center;
+}
+.choose-size {
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+}
+.choose-size-button {
+  margin-top: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+.cell {
+  width: 25%;
+  height: 25%;
+  outline: 1px solid black;
+  display: inline-flex;
+  margin: 0;
+  padding: 0;
+  font-size: 3vw;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  user-select: none;
+  position: relative;
+  background-color: white;
+  cursor: pointer;
+}
+.buttons {
+  margin: 1rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.timers {
+  margin: 2.5rem 0;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* gap: 2rem; */
+}
+.moves,
+.clock {
+  font-size: 1.5rem;
+  position: absolute;
+}
+.moves {
+  margin-right: 17rem;
+}
+.clock {
+  margin-left: 2rem;
+}
+.sound-button {
+  background: url("../assets/volume.svg") no-repeat center;
+  position: absolute;
+  width: 2rem;
+  height: 3rem;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  margin-left: 18rem;
+}
+.sound-off {
+  background: url("../assets/volume-mute.svg") no-repeat center;
+}
+.size-wrapper,
+.size-list {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: #edf3fb;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  overflow-y: auto;
+}
+.size-button {
+  padding: 10px 10px;
+  width: 25%;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+.size-list.active,
+.size-list.active .size-wrapper {
+  display: flex;
+  z-index: 2;
+  padding-top: 5rem;
+}
+
+/* Animations */
+
+@keyframes toDown {
+  0% {
+    transform: translate(0, 0);
+    z-index: 1;
+  }
+  100% {
+    transform: translate(0, 100%);
+    z-index: 1;
+  }
+}
+@keyframes toTop {
+  0% {
+    transform: translate(0, 0);
+    z-index: 1;
+  }
+  100% {
+    transform: translate(0, -100%);
+    z-index: 1;
+  }
+}
+@keyframes toLeft {
+  0% {
+    transform: translate(0, 0);
+    z-index: 1;
+  }
+  100% {
+    transform: translate(-100%, 0);
+    z-index: 1;
+  }
+}
+@keyframes toRight {
+  0% {
+    transform: translate(0, 0);
+    z-index: 1;
+  }
+  100% {
+    transform: translate(100%, 0);
+    z-index: 1;
+  }
+}
+
+/* Media queries */
+@media (max-width: 1200px) {
+  .container.pause::before,
+  .container {
+    width: 40vw;
+    height: 40vw;
+  }
+  .container.pause::before {
+    height: 22vw;
+    padding-top: 18vw;
+  }
+}
+@media (max-width: 768px) {
+  .container.pause::before,
+  .container {
+    width: 55vw;
+    height: 55vw;
+  }
+  .container.pause::before {
+    height: 30vw;
+    padding-top: 25vw;
+  }
+  .size-wrapper {
+    height: 95vh;
+  }
+  .button {
+    font-size: 1.2rem;
+    padding: 15px 20px;
+  }
+  .results {
+    height: 100vh;
+    width: 100vw;
+  }
+  .cell {
+    font-size: 6vw;
+  }
+  .size-list.active .size-wrapper {
+    padding-top: 2rem;
+  }
+}
+@media (max-width: 500px) {
+  .container.pause::before,
+  .container {
+    width: 80vw;
+    height: 80vw;
+  }
+  .container.pause::before {
+    height: 50vw;
+    padding-top: 30vw;
+  }
+  .button {
+    font-size: 1rem;
+    padding: 10px 12px;
+  }
+  .timers {
+    margin: 1.5rem 0;
+  }
+  .moves,
+  .clock {
+    font-size: 1rem;
+  }
+  .moves {
+    margin-right: 14rem;
+  }
+  .clock {
+    margin-left: 0;
+  }
+  .sound-button {
+    margin-left: 12rem;
+  }
+}
+@media (max-width: 375px) {
+  .buttons {
+    gap: 0.5rem;
+    margin: 1rem 0;
+  }
+  .button {
+    font-size: 0.9rem;
+    padding: 10px 10px;
+  }
+  .moves {
+    margin-right: 12rem;
+  }
+  .clock {
+    margin-left: 0.5rem;
+  }
+}
